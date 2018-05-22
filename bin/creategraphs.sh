@@ -1,6 +1,6 @@
 #!/bin/bash
 
-basedir=/home/jon/git/jonping
+basedir=/home/jon/jongraph
 
 for file in $basedir/rrd/*.rrd
     do

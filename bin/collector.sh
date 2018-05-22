@@ -1,6 +1,6 @@
 #!/bin/bash
 
-basedir=/home/jon/git/jonping/
+basedir=/home/jon/jongraph
 
 output=`ping -c 20 -i .2 -W 1 -q $1`
 retval=$?
@@ -35,7 +35,7 @@ then
     DS:min:GAUGE:120:0:1000 \
     DS:avg:GAUGE:120:0:1000 \
     DS:max:GAUGE:120:0:1000 \
-    RRA:MAX:0.5:1:§:525600
+    RRA:MAX:0.5:1:525600
 
     retval=$?
 
