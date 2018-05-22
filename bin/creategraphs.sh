@@ -1,11 +1,13 @@
 #!/bin/bash
 
-for file in ../rrd/*.rrd
+basedir=/home/jon/git/jonping
+
+for file in $basedir/rrd/*.rrd
     do
-        host=${file#../rrd/}
+        host=${file#$basedir/rrd/}
         host=${host%.rrd}
 
-        rrdtool graph ../www/graphs/$host.png \
+        rrdtool graph $basedir/www/graphs/$host.png \
         -w 600 -h 160 -a PNG \
 	-l 0 -u 150 -c CANVAS#000000 -c FONT#FFFFFF -c BACK#000000 \
         --slope-mode \

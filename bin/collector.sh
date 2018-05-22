@@ -1,5 +1,7 @@
 #!/bin/bash
 
+basedir=/home/jon/git/jonping/
+
 output=`ping -c 20 -i .2 -W 1 -q $1`
 retval=$?
 
@@ -25,9 +27,9 @@ else # other errors
     exit $retval
 fi
 
-if [ ! -f ../rrd/$1.rrd ] # create rrd if it doesn't exist
+if [ ! -f $basedir/rrd/$1.rrd ] # create rrd if it doesn't exist
 then
-    rrdtool create ../rrd/$1.rrd \
+    rrdtool create $basedir/rrd/$1.rrd \
     --step 5 \
     DS:lost:GAUGE:120:0:1000 \
     DS:min:GAUGE:120:0:1000 \
@@ -43,7 +45,7 @@ then
     fi
 fi
 
-rrdtool update ../rrd/$1.rrd N:$lost:$min:$avg:$max
+rrdtool update $basedir/rrd/$1.rrd N:$lost:$min:$avg:$max
 
 retval=$?
 
