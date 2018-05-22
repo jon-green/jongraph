@@ -35,7 +35,7 @@ then
     DS:min:GAUGE:120:0:1000 \
     DS:avg:GAUGE:120:0:1000 \
     DS:max:GAUGE:120:0:1000 \
-    RRA:MAX:0.5:1:§:525600
+    RRA:MAX:0.5:1:525600
 
     retval=$?
 
